@@ -1,2 +1,4 @@
 payload:
+  - DOMAIN-SUFFIX,msftconnecttest.com
+  - DOMAIN-SUFFIX,msftncsi.com
   #- DOMAIN-SUFFIX,aka.ms
