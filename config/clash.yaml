@@ -91,6 +91,7 @@ dns:
     - '*.*.*.taobao.com'
     - 'taobao.com'
     - '*.alicdn.com'
+    - '*.mcdn.bilivideo.cn'
   nameserver:
     - https://223.5.5.5/dns-query
   fallback:
@@ -101,25 +102,129 @@ dns:
       - 240.0.0.0/4
 proxies:
 
+proxy-providers:
+  #https://sub.v1.mk/
+  HK:
+    type: http
+    url: ""
+    #include: .*(香港); exclude: .*(游戏|马来|土耳其)
+    interval: 86400
+    path: ./HKList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  HK-F:
+    type: http
+    url: ""
+    #include: .*(香港); exclude: .*(游戏|马来|土耳其|香港7]|香港7-2|香港MS2|香港MS1|港企宽]福建|香港3|香港8|香港9)
+    interval: 86400
+    path: ./HKFList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  PO-C:
+    type: http
+    url: ""
+    #include: .*(印度|荷兰|美国6|越南1|泰国1|印尼|台湾2|港Anycast]海南)
+    interval: 86400
+    path: ./POCList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  TW:
+    type: http
+    url: ""
+    #include: .*(台湾); exclude: .*(游戏|隐私)
+    interval: 86400
+    path: ./TWList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  SG:
+    type: http
+    url: ""
+    #include: .*(新加); exclude: .*(游戏)
+    interval: 86400
+    path: ./SGList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  JP:
+    type: http
+    url: ""
+    #include: .*(日本); exclude: .*(游戏|隐私|阿根廷)
+    interval: 86400
+    path: ./JPList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  US:
+    type: http
+    url: ""
+    #include: .*(美国); exclude: .*(游戏|隐私)
+    interval: 86400
+    path: ./USList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  PR:
+    type: http
+    url: ""
+    #include: .*(隐私)
+    interval: 86400
+    path: ./PRList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  KR:
+    type: http
+    url: ""
+    #include: .*(韩); exclude: .*(游戏|隐私)
+    interval: 86400
+    path: ./KRList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  SP:
+    type: http
+    url: ""
+    #exclude: .*(游戏|香港|日本|新加|韩|台湾|美国)
+    interval: 86400
+    path: ./SPList.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
 proxy-groups:
-    - { name: 全球加速, type: select, proxies: [香港Fallback, 香港标准节点, 香港节点, 台湾节点, 日本节点, 新加坡隐私节点, 美国节点, DIRECT] }
-    - { name: 国内媒体, type: select, proxies: [DIRECT, 香港Fallback, 香港标准节点, 香港节点, 台湾节点, 日本节点] }
-    - { name: 国际媒体, type: select, proxies: [全球加速, 香港标准节点, 香港节点, 台湾节点, 日本节点, 新加坡隐私节点, 美国节点] }
-    - { name: 游戏加速, type: select, proxies: [全球加速, 特惠节点, DIRECT, 香港标准节点, 香港节点, 台湾节点, 日本节点, 新加坡隐私节点, 美国节点] }
-    - { name: 游戏下载, type: select, proxies: [特惠节点, DIRECT, 全球加速] }
-    - { name: Speedtest, type: select, proxies: [全球加速, DIRECT, 香港标准节点, 香港节点, 台湾节点, 日本节点, 新加坡隐私节点, 美国节点] }
-    - { name: Telegram, type: select, proxies: [新加坡隐私节点, 全球加速, DIRECT, 香港标准节点, 香港节点, 台湾节点, 日本节点, 美国节点] }
-    - { name: Microsoft, type: select, proxies: [DIRECT, 特惠节点, 全球加速, 新加坡隐私节点] }
-    - { name: Bing, type: select, proxies: [DIRECT, 特惠节点, 全球加速, 新加坡隐私节点] }
-    - { name: Apple, type: select, proxies: [DIRECT, 特惠节点, 全球加速, 新加坡隐私节点] }
-    - { name: 香港Fallback, type: fallback, proxies: ['[香港Anycast]海南BGP TV', 香港标准节点, 香港节点], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 香港节点, type: url-test, proxies: [ '[香港Anycast]福建BGP TV', '[香港Anycast]海南BGP TV', '[香港企宽]福建BGP TV', '[香港企宽2]香港BGP TV', '[香港企宽3]三亚BGP TV', '[香港企宽4]海南BGP TV', '[香港MS1]广港AGA加速 TV', '[香港MS2]融合BGP入口 TV', '[香港MS3]海南BGP入口 TV', '[香港MS4]福建BGP入口 TV', '[香港MS5]三亚CMIN2入口 TV', '[香港1环球电讯]BGP 原生IP TV', '[香港2环球电讯]三亚BGP 原生IP TV', '[香港2A环球电讯]海南BGP 原生IP TV', '[香港3]NTT CN2/9929入口 TV', '[香港4]NTT 三亚移动入口 TV', '[香港5]NTT CN2/9929 入口 TV', '[香港7]MS 三网CN2GIA入口 超大带宽低延迟节点', '[香港7-IPLC]三亚CMI 超大带宽低延迟节点', '[香港7-HN]海南BGP 超大带宽低延迟节点', '[香港7-2]MS 三网CN2GIA入口 TV 超大带宽低延迟节点', '[香港7-2]福建BGP入口 TV 超大带宽低延迟节点', '[香港7-HN]海南BGP入口 TV 超大带宽低延迟节点', '[香港8]DM CN2/9929 入口 TV', '[香港8-2]DM 三亚移动入口 TV', '[香港8-CM]DM 海口电信入口 TV', '[香港9]DM 海口电信 TV', '[香港10]DM 福州电信 TV', '[香港11]HGC原生 海南BGP入口 TV', '[香港12]HGC原生 浙江BGP入口 TV'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 香港标准节点, type: url-test, proxies: [ '[香港Anycast]福建BGP TV', '[香港Anycast]海南BGP TV', '[香港企宽2]香港BGP TV', '[香港企宽3]三亚BGP TV', '[香港企宽4]海南BGP TV', '[香港MS3]海南BGP入口 TV', '[香港MS4]福建BGP入口 TV', '[香港MS5]三亚CMIN2入口 TV', '[香港1环球电讯]BGP 原生IP TV', '[香港2环球电讯]三亚BGP 原生IP TV', '[香港2A环球电讯]海南BGP 原生IP TV', '[香港4]NTT 三亚移动入口 TV', '[香港5]NTT CN2/9929 入口 TV', '[香港7-IPLC]三亚CMI 超大带宽低延迟节点', '[香港7-HN]海南BGP 超大带宽低延迟节点', '[香港7-HN]海南BGP入口 TV 超大带宽低延迟节点', '[香港10]DM 福州电信 TV', '[香港11]HGC原生 海南BGP入口 TV', '[香港12]HGC原生 浙江BGP入口 TV'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 台湾节点, type: url-test, proxies: [ '[台湾1]新北 安徽BGP入口 TV', '[台湾2]新北 三亚BGP入口 TV', '[台湾3]新北 海南BGP入口 TV'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 日本节点, type: url-test, proxies: [ '[日本1]Nico BGP入口 TV', '[日本2]Nico 湘潭BGP入口 TV', '[日本3]Nico 电联入口 TV', '[日本4]Cat CN2入口 TV', '[日本5]Cat 湘潭BGP入口 TV', '[日本6]Cat 杭州BGP入口 TV', '[日本7]NTT CN2入口 TV', '[日本8]NTT 湘潭BGP入口 TV', '[日本9]NTT 杭州BGP入口 TV'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 新加坡隐私节点, type: url-test, proxies: [ '[新加坡]BGP 隐私专线入口 TV', '[新加坡1]海南BGP 隐私专线入口 TV', '[新加坡2]福建BGP 推荐 隐私专线入口 TV', '[新加坡3]沪新IPLC  隐私专线入口 TV', '[新加坡4]海南BGP  隐私专线入口 TV', '[新加坡5]湘潭BGP 隐私专线入口 TV'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 美国节点, type: url-test, proxies: [ '[美国1]洛杉矶 BGP入口 TV', '[美国2]洛杉矶 长沙BGP入口 TV', '[美国3]洛杉矶 南方BGP入口 TV', '[美国4]旧金山 日美NCP入口 TV', '[美国5]旧金山 BGP入口 TV', '[美国6]加州 9929VIP入口 TV'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
-    - { name: 特惠节点, type: url-test, proxies: ['[香港Anycast]海南BGP TV', '[台湾2]新北 三亚BGP入口 TV', '[越南1]新越BGP TV', '[印尼]BGP入口 TV', '[荷兰VIP-3]10G 下载专用入口 TV', '[印度1]孟买 新印BGP入口 TV', '[印度2]孟买 港印BGP入口 TV'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
+  - { name: 全球加速, type: select, proxies: [香港标准节点, 香港节点, 台湾节点, 日本节点, 新加坡隐私节点, 美国节点, DIRECT] }
+  - { name: 国内媒体, type: select, proxies: [DIRECT, 香港标准节点, 香港节点, 台湾节点, 日本节点] }
+  - { name: 国际媒体, type: select, proxies: [全球加速, 香港标准节点, 香港节点, 台湾节点, 日本节点, 新加坡隐私节点, 美国节点] }
+  - { name: 游戏加速, type: select, proxies: [全球加速, 特惠节点, DIRECT, 香港标准节点, 香港节点, 台湾节点, 日本节点, 新加坡隐私节点, 美国节点] }
+  - { name: 游戏下载, type: select, proxies: [特惠节点, DIRECT, 全球加速] }
+  - { name: Speedtest, type: select, proxies: [全球加速, DIRECT, 香港标准节点, 香港节点, 台湾节点, 日本节点, 新加坡隐私节点, 美国节点] }
+  - { name: Telegram, type: select, proxies: [隐私节点, 全球加速, DIRECT] }
+  - { name: Microsoft, type: select, proxies: [DIRECT, 特惠节点, 全球加速, 新加坡隐私节点] }
+  - { name: Bing, type: select, proxies: [DIRECT, 特惠节点, 全球加速, 新加坡隐私节点] }
+  - { name: Apple, type: select, proxies: [DIRECT, 特惠节点, 全球加速, 新加坡隐私节点] }
+  - { name: 香港节点, type: url-test, use: [HK], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 香港标准节点, type: url-test, use: [HK-F], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 台湾节点, type: url-test, use: [TW], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 日本节点, type: url-test, use: [JP], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 新加坡隐私节点, type: url-test, use: [SG], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 韩国节点, type: url-test, use: [KR], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 美国节点, type: url-test, use: [US], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 隐私节点, type: url-test, use: [PR], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 特惠节点, type: url-test, use: [PO-C], url: 'http://www.gstatic.com/generate_204', interval: 600 }
+  - { name: 其他节点, type: select, use: [SP], url: 'http://www.gstatic.com/generate_204', interval: 600 }
 
 rule-providers: 
   Unbreak:
@@ -198,7 +303,7 @@ rule-providers:
     type: http
     behavior: classical
     path: "./rule_provider/Bing.yaml"
-    url: https://ghproxy.com/https://raw.githubusercontent.com/Toyro7356/QuantumultX/main/Bing.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/Toyro7356/Clash/release/Rules/Bing.yaml
     interval: 86400
   Apple:
     type: http
@@ -210,20 +315,33 @@ rule-providers:
     type: http
     behavior: classical
     path: "./rule_provider/GameDownload.yaml"
-    url: https://ghproxy.com/https://raw.githubusercontent.com/Toyro7356/QuantumultX/main/GameDownload.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/Toyro7356/Clash/release/Rules/GameDownload.yaml
     interval: 86400
   Taobao:
     type: http
     behavior: classical
     path: "./rule_provider/Taobao.yaml"
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Alibaba/Alibaba.yaml
-    interval: 86400 
+    interval: 86400
+  Special-Direct:
+    type: http
+    behavior: classical
+    path: "./rule_provider/Special-Direct.yaml"
+    url: https://ghproxy.com/https://raw.githubusercontent.com/Toyro7356/Clash/release/Rules/Special-Direct.yaml
+    interval: 86400
+  Special-Proxy:
+    type: http
+    behavior: classical
+    path: "./rule_provider/Special-Proxy.yaml"
+    url: https://ghproxy.com/https://raw.githubusercontent.com/Toyro7356/Clash/release/Rules/Special-Proxy.yaml
+    interval: 86400
 rules:
-  - DOMAIN-SUFFIX,msftconnecttest.com,全球加速
-  - DOMAIN-SUFFIX,msftncsi.com,全球加速
-  - RULE-SET,Unbreak,DIRECT
+  - DOMAIN,lens.l.google.com,美国节点
+  - RULE-SET,Special-Direct,DIRECT
+  - RULE-SET,Special-Proxy,全球加速
   - RULE-SET,Privacy,REJECT
   - RULE-SET,Hijacking,REJECT
+  - RULE-SET,Unbreak,DIRECT
   - RULE-SET,Taobao,DIRECT
   - RULE-SET,Bing,Bing
   - RULE-SET,Microsoft,Microsoft
@@ -234,7 +352,6 @@ rules:
   - RULE-SET,Apple,Apple
   - RULE-SET,StreamingSE,国内媒体
   - RULE-SET,Streaming,国际媒体
-  - DOMAIN,lens.l.google.com,美国节点
   - RULE-SET,China,DIRECT
   - RULE-SET,ChinaMax_Classical,DIRECT
   - RULE-SET,Global,全球加速
