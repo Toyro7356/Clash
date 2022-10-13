@@ -5,6 +5,7 @@ payload:
   - DOMAIN-SUFFIX,checkmails.xyz
   - DOMAIN-SUFFIX,iqdnsio.co
   - DOMAIN-SUFFIX,iqiq.io
+  - DOMAIN-SUFFIX,m.hotmail.com
   - IP-CIDR,213.255.247.119/32
   - IP-CIDR,66.90.74.111/32
   - IP-CIDR,20.205.99.140/32
@@ -21,4 +22,4 @@ payload:
   - IP-CIDR,13.228.94.76/32
   - IP-CIDR,20.205.109.178/32
   #- IP-CIDR,13.228.94.76/32
-  #- DOMAIN-SUFFIX,
+  #- DOMAIN-SUFFIX,m.hotmail.com
