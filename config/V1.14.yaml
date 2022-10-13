@@ -116,7 +116,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
   HK-F:
     type: http
-    url: ""
+    url: " "
     #include: .*(香港); exclude: .*(游戏|马来|土耳其|香港7]|香港7-2|香港MS2|香港MS1|港企宽]福建|香港3|香港8|香港9)
     interval: 86400
     path: ./HKFList.yaml
