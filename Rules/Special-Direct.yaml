@@ -9,7 +9,6 @@ payload:
   - DOMAIN-SUFFIX,iqzone.me
   - DOMAIN-SUFFIX,cdn.iqzone.me
   - DOMAIN-SUFFIX,ovoglass.co
-  - DOMAIN-SUFFIX,dns.nextdns.io
   - IP-CIDR,213.255.247.119/32
   - IP-CIDR,66.90.74.111/32
   - IP-CIDR,20.205.99.140/32
