@@ -2,4 +2,6 @@ payload:
   - DOMAIN-SUFFIX,msftconnecttest.com
   - DOMAIN-SUFFIX,msftncsi.com
   - DOMAIN-SUFFIX,translate.googleapis.com
+  - DOMAIN-SUFFIX,dl.google.com
+
   #- DOMAIN-SUFFIX,translate.googleapis.com
