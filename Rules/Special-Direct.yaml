@@ -11,6 +11,8 @@ payload:
   - DOMAIN-SUFFIX,ovoglass.co
   - DOMAIN-KEYWORD,backblaze
   - DOMAIN-KEYWORD,wormhole
+  - DOMAIN-SUFFIX,zhuan99.men
+  - DOMAIN-SUFFIX,99ton.men
   - IP-CIDR,213.255.247.119/32
   - IP-CIDR,66.90.74.111/32
   - IP-CIDR,20.205.99.140/32
