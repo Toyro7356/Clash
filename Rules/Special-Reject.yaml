@@ -2,8 +2,12 @@ payload:
   - DOMAIN-SUFFIX,gjfzpt.cn
   - DOMAIN,www.baidu.com
   - DOMAIN,m.baidu.com
+  - DOMAIN,hmma.baidu.com
   - DOMAIN,3g.baidu.com
   - DOMAIN,wap.baidu.com
+  - DOMAIN-SUFFIX,duba.com
+  - DOMAIN-SUFFIX,ijinshan.com
+  - DOMAIN-SUFFIX,drivergenius.com
   - DOMAIN,baijiahao.baidu.com
   - DOMAIN-SUFFIX,2345.com
   - DOMAIN-SUFFIX,2345.cc
