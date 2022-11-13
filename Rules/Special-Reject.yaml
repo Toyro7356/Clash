@@ -1,5 +1,4 @@
 payload:
-  - SRC-IP-CIDR,192.168.3.202/32
   - DOMAIN-SUFFIX,gjfzpt.cn
   - DOMAIN,www.baidu.com
   - DOMAIN,m.baidu.com
