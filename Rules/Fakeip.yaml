@@ -11,6 +11,10 @@ payload:
   - DOMAIN,message.bilibili.com
   - DOMAIN,cm.bilibili.com
   - DOMAIN-SUFFIX,bilibili.com
+  - DOMAIN,app.biliapi.com
+  - DOMAIN,app.biliapi.net
+  - DOMAIN,grpc.biliapi.net
+  - DOMAIN,m.bilibili.com
   - DOMAIN-SUFFIX,im9.com
   - DOMAIN-SUFFIX,acg.tv
   - DOMAIN-SUFFIX,biligame.com
