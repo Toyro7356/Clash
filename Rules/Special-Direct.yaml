@@ -32,7 +32,6 @@ payload:
   - DOMAIN-SUFFIX,danmuproxy.douyu.com
   - DOMAIN-SUFFIX,img.douyucdn.cn
   - IP-CIDR,213.255.247.119/32
-  - IP-CIDR,35.190.80.1/24
   - IP-CIDR,66.90.74.111/32
   - IP-CIDR,20.205.99.140/32
   - IP-CIDR,20.24.208.167/32
