@@ -4,5 +4,6 @@ payload:
   - DOMAIN-SUFFIX,translate.googleapis.com
   - DOMAIN-SUFFIX,dl.google.com
   - DOMAIN,humb.apple.com
-  #- DOMAIN-KEYWORD,mihoyo
+  - DOMAIN-KEYWORD,mihoyo
+  - DOMAIN-KEYWORD,yuanshen
   #- DOMAIN-SUFFIX,translate.googleapis.com
