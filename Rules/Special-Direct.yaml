@@ -12,6 +12,7 @@ payload:
   - DOMAIN-SUFFIX,ovoglass.co
   - DOMAIN-KEYWORD,backblaze
   - DOMAIN-KEYWORD,wormhole
+  - DOMAIN-KEYWORD,penguin-stats
   - DOMAIN-SUFFIX,zhuan99.men
   - DOMAIN-SUFFIX,99ton.men
   - DOMAIN-SUFFIX,seagm.com
