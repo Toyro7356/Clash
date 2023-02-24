@@ -46,6 +46,38 @@ payload:
   - IP-CIDR,13.228.94.76/32
   - IP-CIDR,20.205.109.178/32
   - IP-CIDR,43.154.229.26/32
+  #time
+  - DOMAIN-SUFFIX,time.windows.com
+  - DOMAIN-SUFFIX,time.nist.gov
+  - DOMAIN-SUFFIX,time.apple.com
+  - DOMAIN-SUFFIX,ntp.ubuntu.com
+  - DOMAIN-SUFFIX,ntp.aliyun.com
+  - DOMAIN-SUFFIX,ntp1.aliyun.com
+  - DOMAIN-SUFFIX,ntp2.aliyun.com
+  - DOMAIN-SUFFIX,ntp3.aliyun.com
+  - DOMAIN-SUFFIX,ntp4.aliyun.com
+  - DOMAIN-SUFFIX,ntp5.aliyun.com
+  - DOMAIN-SUFFIX,ntp6.aliyun.com
+  - DOMAIN-SUFFIX,ntp7.aliyun.com
+  - DOMAIN-SUFFIX,time1.aliyun.com
+  - DOMAIN-SUFFIX,time2.aliyun.com
+  - DOMAIN-SUFFIX,time3.aliyun.com
+  - DOMAIN-SUFFIX,time4.aliyun.com
+  - DOMAIN-SUFFIX,time5.aliyun.com
+  - DOMAIN-SUFFIX,time6.aliyun.com
+  - DOMAIN-SUFFIX,time7.aliyun.com
+  - DOMAIN-SUFFIX,time1.apple.com
+  - DOMAIN-SUFFIX,time2.apple.com
+  - DOMAIN-SUFFIX,time3.apple.com
+  - DOMAIN-SUFFIX,time4.apple.com
+  - DOMAIN-SUFFIX,time5.apple.com
+  - DOMAIN-SUFFIX,time6.apple.com
+  - DOMAIN-SUFFIX,time7.apple.com
+  - DOMAIN-SUFFIX,time1.google.com
+  - DOMAIN-SUFFIX,time2.google.com
+  - DOMAIN-SUFFIX,time3.google.com
+  - DOMAIN-SUFFIX,time4.google.com
+  - DOMAIN-SUFFIX,time.asia.apple.com
   #BT
   - DOMAIN-SUFFIX,52pt.site
   - DOMAIN-SUFFIX,aidoru-online.me
