@@ -14,11 +14,6 @@ payload:
   - DOMAIN-SUFFIX,apollo.auto
   - DOMAIN-SUFFIX,baeapps.com
   - DOMAIN-SUFFIX,baetyl.tech
-  - DOMAIN-SUFFIX,baidu.cn
-  - DOMAIN-SUFFIX,baidu.com
-  - DOMAIN-SUFFIX,baidu.com.cn
-  - DOMAIN-SUFFIX,baidu.com.hk
-  - DOMAIN-SUFFIX,baidu.hk
   - DOMAIN-SUFFIX,hao123.com
   - DOMAIN-SUFFIX,hao123.net
   - DOMAIN-SUFFIX,hao123img.com
@@ -26,7 +21,6 @@ payload:
   - DOMAIN-SUFFIX,hao222.net
   - DOMAIN-SUFFIX,haokan.com
   - DOMAIN-SUFFIX,hiapk.com
-  - DOMAIN,wap.baidu.com
   - DOMAIN-SUFFIX,duba.com
   - DOMAIN-SUFFIX,ijinshan.com
   - DOMAIN-SUFFIX,drivergenius.com
